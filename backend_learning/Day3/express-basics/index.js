@@ -31,6 +31,16 @@ app.get('/about' , (req , res)=>{
     res.send('Welcome to About Us Page')
 })
 
+
+app.get('/greet' , (req ,res )=> {
+    const name = req.query.name;
+    if(name){
+        res.send(`helloo this is day 3 of 100 days of code ${name}` )
+    } else {
+        res.send('please provide ur name in the query')
+    }
+});
+
 // Start server
 app.listen(3000, () => {
   console.log('Server is running at http://localhost:3000');
