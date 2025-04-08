@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1744107330585,
+    "title": "Learn Node.js",
+    "content": "Today I practiced Express.js routing and created a note API."
+  },
+  {
+    "id": 1744107342804,
+    "title": "Learn Node.js (Updated)",
+    "content": "Practiced Express routing, middleware, and file-based CRUD."
+  },
+  {
+    "id": 1744107351990,
+    "title": "Books to Read",
+    "content": "Clean Code, You Don't Know JS, Eloquent JavaScript"
+  }
+]
