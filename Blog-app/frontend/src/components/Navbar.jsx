@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../context/authContext";
-import { Menu, X } from "lucide-react"; // or HeroIcons if you prefer
+import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const { user, logout } = useAuth();
@@ -9,15 +9,17 @@ const Navbar = () => {
   const location = useLocation();
 
   const navLinkClass = (path) =>
-    `block py-2 px-4 hover:text-blue-400 transition ${
-      location.pathname === path ? "text-blue-400 font-semibold" : ""
+    `block py-2 px-4 transition-colors duration-300 ${
+      location.pathname === path
+        ? "text-purple-400 font-semibold"
+        : "text-gray-300 hover:text-purple-400"
     }`;
 
   return (
-    <nav className="bg-gray-900 text-white shadow-md sticky top-0 z-50">
+    <nav className="bg-gradient-to-r from-[#1A1A1A] to-[#2A1A2A] shadow-lg border-b border-gray-800 text-white shadow-md sticky top-0 z-50 rounded-lg mx-4 mt-4">
       <div className="w-full px-4 py-3 flex justify-between items-center">
-        <Link to="/" className="text-xl font-bold text-blue-400">
-          MyBlogApp
+        <Link to="/" className="text-xl font-bold text-purple-400">
+          BLogVerse
         </Link>
 
         {/* Mobile menu toggle */}
@@ -40,7 +42,7 @@ const Navbar = () => {
             <>
               <Link to="/dashboard" className={navLinkClass("/dashboard")}>Dashboard</Link>
               <Link to="/blogs/create" className={navLinkClass("/blogs/create")}>Create Blog</Link>
-              <button onClick={logout} className="text-red-400 hover:underline">Logout</button>
+              <button onClick={logout} className="text-red-400 hover:underline transition">Logout</button>
             </>
           )}
         </div>
@@ -48,7 +50,7 @@ const Navbar = () => {
 
       {/* Mobile dropdown menu */}
       {menuOpen && (
-        <div className="md:hidden bg-gray-800 border-t border-gray-700">
+        <div className="md:hidden bg-[#121212] border-t border-gray-800">
           <div className="flex flex-col items-start p-4 gap-2">
             <Link to="/" className={navLinkClass("/")} onClick={() => setMenuOpen(false)}>Home</Link>
             <Link to="/blogs" className={navLinkClass("/blogs")} onClick={() => setMenuOpen(false)}>All Blogs</Link>
@@ -72,3 +74,6 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+
+

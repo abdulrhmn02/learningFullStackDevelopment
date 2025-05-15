@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "../../api/axios";
+import Button from "../../components/Button";
 
 export default function EditBlog() {
   const { id } = useParams();
@@ -52,12 +53,15 @@ export default function EditBlog() {
           className="w-full px-4 py-2 border rounded h-48"
           required
         />
-        <button
+        {/* <button
           type="submit"
           className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
         >
           Update Blog
-        </button>
+        </button> */}
+        <Button type="submit" variant="success">
+  Update Blog
+</Button>
       </form>
     </div>
   );
