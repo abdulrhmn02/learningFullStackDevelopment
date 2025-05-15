@@ -1,0 +1,33 @@
+/* .custom-toast {
+    background: linear-gradient(135deg, #1f1c2c, #928dab);
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    font-family: 'Poppins', sans-serif;
+    animation: fadeInUp 0.5s ease-in-out;
+  }
+  
+  .custom-toast-body {
+    font-size: 0.95rem;
+  }
+  
+  .custom-progress-bar {
+    background: #ffb347;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 20%, 0);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+   */
+
+
+
+   

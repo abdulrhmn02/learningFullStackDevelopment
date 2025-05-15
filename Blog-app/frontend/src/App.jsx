@@ -8,10 +8,14 @@ import BlogList from "./pages/Blogs/BlogList";
 import CreateBlog from "./pages/Blogs/CreateBlog";
 import BlogDetails from "./pages/Blogs/BlogDetails";
 import EditBlog from "./pages/Blogs/EditBlog";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "./App.css";
 
 export default function App() {
   return (
-    <div className="max-w-4xl mx-auto">
+    // w-full px-4 sm:px-6 md:px-8
+    <div className="max-w-4xl mx-auto ">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -23,6 +27,32 @@ export default function App() {
         <Route path="/blogs/:id" element={<BlogDetails />} />
         <Route path="/blogs/:id/edit" element={<EditBlog />} />
       </Routes>
+      {/* <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        pauseOnHover
+        theme="colored"
+      /> */}
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={true}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover
+        theme="dark"
+        limit={3}
+        toastClassName="custom-toast"
+        bodyClassName="custom-toast-body"
+        progressClassName="custom-progress-bar"
+      />
     </div>
   );
 }
+// https://mui.com/material-ui/getting-started/templates/blog/
