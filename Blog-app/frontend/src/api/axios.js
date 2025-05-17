@@ -1,10 +1,11 @@
+
 // import axios from "axios";
 
 // const instance = axios.create({
-//   baseURL: "http://localhost:4000/api", // adjust if your backend is running on a different port
+//   baseURL: "http://localhost:4000/api", // or whatever your backend base URL is
 // });
 
-// // Attach token to all requests if available
+// // Attach token to every request if exists
 // instance.interceptors.request.use((config) => {
 //   const token = localStorage.getItem("token");
 //   if (token) {
@@ -14,10 +15,12 @@
 // });
 
 // export default instance;
+
+
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "http://localhost:4000/api", // or whatever your backend base URL is
+  baseURL: process.env.REACT_APP_API_URL || "http://localhost:4000/api",
 });
 
 // Attach token to every request if exists
@@ -30,3 +33,4 @@ instance.interceptors.request.use((config) => {
 });
 
 export default instance;
+
