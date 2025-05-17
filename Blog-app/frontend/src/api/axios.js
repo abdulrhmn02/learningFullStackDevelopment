@@ -20,7 +20,8 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: process.env.VITE_API_URL || "http://localhost:4000/api",
+  baseURL: import.meta.env.VITE_API_URL || "http://localhost:4000/api",
+
 });
 
 // Attach token to every request if exists
