@@ -84,6 +84,7 @@ import axios from "../../api/axios";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
 import Button from "../../components/Button"
+import Loader from "../../components/Loader"
 
 const BlogDetails = () => {
   const { id } = useParams();
@@ -123,7 +124,7 @@ const BlogDetails = () => {
   };
 
   if (loading)
-    return <p className="text-center mt-4 text-gray-300">Loading...</p>;
+    return <Loader/>
   if (error)
     return <p className="text-center mt-4 text-red-400 font-medium">{error}</p>;
   if (!blog) return null;

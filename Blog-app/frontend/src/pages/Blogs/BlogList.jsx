@@ -60,6 +60,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "../../api/axios";
 import BlogCard from "../../components/BlogCard";
+import Loader from "../../components/Loader"
 
 const BlogList = () => {
   const [blogs, setBlogs] = useState([]);
@@ -82,7 +83,7 @@ const BlogList = () => {
     fetchBlogs();
   }, []);
 
-  if (loading) return <p className="text-center mt-4">Loading...</p>;
+  if (loading) return <Loader/>;
   if (error) return <p className="text-center mt-4 text-red-500">{error}</p>;
 
   return (

@@ -62,6 +62,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/authContext";
 import FormWrapper from "../components/FormWrapper"; // Import FormWrapper
 import Button from "../components/Button";
+import { toast } from "react-toastify";
 
 export default function Login() {
   const [form, setForm] = useState({ email: "", password: "" });
@@ -79,7 +80,9 @@ export default function Login() {
       login(res.data.user, res.data.token);
       navigate("/dashboard");
     } catch (err) {
-      alert("Login failed. Please check your credentials.");
+      toast.error(
+        err.response?.data?.message || "Login failed. Please check your credentials."
+      );
       console.error(err);
     }
   };

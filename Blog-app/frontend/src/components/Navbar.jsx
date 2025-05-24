@@ -19,7 +19,7 @@ const Navbar = () => {
     <nav className="bg-gradient-to-r from-[#1A1A1A] to-[#2A1A2A] shadow-lg border-b border-gray-800 text-white shadow-md sticky top-0 z-50 rounded-lg mx-4 mt-4">
       <div className="w-full px-4 py-3 flex justify-between items-center">
         <Link to="/" className="text-xl font-bold text-purple-400">
-          BLogVerse
+          BlogVerse
         </Link>
 
         {/* Mobile menu toggle */}
