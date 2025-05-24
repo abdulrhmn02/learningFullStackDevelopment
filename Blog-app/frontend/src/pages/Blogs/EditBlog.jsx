@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "../../api/axios";
 import Button from "../../components/Button";
+import { toast } from "react-toastify";
 
 export default function EditBlog() {
   const { id } = useParams();
@@ -14,6 +15,7 @@ export default function EditBlog() {
         const res = await axios.get(`/blogs/${id}`);
         setForm({ title: res.data.title, content: res.data.content });
       } catch (err) {
+        toast.erroe("Failed to fetch a blog for editing");
         console.error("Error fetching blog for editing:", err);
       }
     };
@@ -28,9 +30,11 @@ export default function EditBlog() {
     e.preventDefault();
     try {
       await axios.put(`/blogs/${id}`, form);
+      toast.success("Blog updated successfully!");
       navigate(`/blogs/${id}`);
     } catch (err) {
       console.error("Error updating blog:", err);
+      toast.error("Failed to update blog.");
     }
   };
 
@@ -53,15 +57,10 @@ export default function EditBlog() {
           className="w-full px-4 py-2 border rounded h-48"
           required
         />
-        {/* <button
-          type="submit"
-          className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
-        >
-          Update Blog
-        </button> */}
+
         <Button type="submit" variant="success">
-  Update Blog
-</Button>
+          Update Blog
+        </Button>
       </form>
     </div>
   );

@@ -3,6 +3,8 @@ import axios from "../../api/axios";
 import { useNavigate } from "react-router-dom";
 import FormWrapper from "../../components/FormWrapper"; // Import FormWrapper
 import Button from "../../components/Button";
+import { toast } from "react-toastify";
+
 export default function CreateBlog() {
   const [form, setForm] = useState({ title: "", content: "" });
   const navigate = useNavigate();
@@ -15,9 +17,10 @@ export default function CreateBlog() {
     e.preventDefault();
     try {
       await axios.post("/blogs", { title: form.title, content: form.content });
+      toast.success("Blog created successfully!");
       navigate("/blogs");
     } catch (err) {
-      console.error("Error creating blog:", err);
+      toast.error("Failed to create blog. Please try again.");
       alert("Failed to create blog");
     }
   };
