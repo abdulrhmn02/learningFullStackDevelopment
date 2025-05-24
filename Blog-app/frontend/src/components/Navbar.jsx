@@ -18,9 +18,10 @@ const Navbar = () => {
   return (
     <nav className="bg-gradient-to-r from-[#1A1A1A] to-[#2A1A2A] shadow-lg border-b border-gray-800 text-white shadow-md sticky top-0 z-50 rounded-lg mx-4 mt-4">
       <div className="w-full px-4 py-3 flex justify-between items-center">
-        <Link to="/" className="text-xl font-bold text-purple-400">
-          BlogVerse
-        </Link>
+      <Link to="/" className="flex items-center gap-2 text-xl font-bold text-purple-400">
+  <img src="/favicon.png" alt="Logo" className="h-7 w-7 rounded-full" />
+  BlogVerse
+</Link>
 
         {/* Mobile menu toggle */}
         <div className="md:hidden">
