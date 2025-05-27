@@ -1,18 +1,29 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const cookieParser = require("cookie-parser");
 const cors = require('cors')
 const dotenv = require('dotenv')
 const authRoutes = require('./routes/auth')
 const testRoute = require('./routes/testRoute');
 const blogRoutes = require("./routes/blogRoutes");
 
+
 dotenv.config();
 
 const app = express();
 
 // Middleware
-app.use(cors());
+// app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:5173", // ✅ For local frontend testing
+    credentials: true,               // ✅ Send HTTP-only cookies
+  })
+);
+
+
 app.use(express.json());
+app.use(cookieParser());  
 app.use('/api/auth', authRoutes);
 app.use('/api', testRoute);
 app.use("/api/blogs", blogRoutes);
